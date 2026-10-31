@@ -109,7 +109,7 @@
 <body class="p-2 sm:p-4 select-none">
 
   <!-- Top App Navigation Bar -->
-  <header class="max-w-5xl mx-auto mb-3 bg-slate-900/85 backdrop-blur-md border border-cyan-500/30 rounded-2xl p-2.5 sm:p-3.5 flex flex-wrap items-center justify-between gap-2 shadow-2xl">
+  <header id="math-header" class="hidden max-w-5xl mx-auto mb-3 bg-slate-900/85 backdrop-blur-md border border-cyan-500/30 rounded-2xl p-2.5 sm:p-3.5 flex flex-wrap items-center justify-between gap-2 shadow-2xl">
     <div class="flex items-center gap-2.5 cursor-pointer" id="btn-brand-home">
       <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-xl shadow-lg shadow-cyan-500/40">
         🌊
@@ -2796,10 +2796,15 @@ function genEnglish(unit, level) {
       if (viewLevels) viewLevels.classList.add("hidden");
       if (viewChallenge) viewChallenge.classList.add("hidden");
 
+      const mathHeader = document.getElementById("math-header");
+
       if (viewId === 'lobby') {
+        if (mathHeader) mathHeader.classList.add("hidden");
         if (viewLobby) viewLobby.classList.remove("hidden");
         state.currentSubject = "lobby";
         renderLobby();
+      } else {
+        if (mathHeader) mathHeader.classList.remove("hidden");
       }
       if (viewId === 'units' && viewUnits) {
         viewUnits.classList.remove("hidden");
@@ -3365,12 +3370,9 @@ function genEnglish(unit, level) {
         loadStudentProfile(initialProfile);
         showView('lobby');
       } else {
-        // First time or no saved record: start with guest, show lobby, and immediately pop up login modal
+        // First time or no saved record: start with guest, directly show lobby
         loadStudentProfile({ className: "", seatNo: "", name: "", id: "guest" });
         showView('lobby');
-        setTimeout(() => {
-          openStudentLoginModal();
-        }, 350);
       }
       initEyeProtectionTimer();
 
