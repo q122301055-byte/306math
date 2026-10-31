@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>康軒三上數學冒險島・水滴幻卡神殿</title>
+  <title>三上五大學科自主複習大廳・學習探險總部</title>
   
   <!-- LINE 強迫跳出外部瀏覽器指令 (避免在 LINE 內建瀏覽器產生音訊與版面相容性問題) -->
   <script>
@@ -117,7 +117,7 @@
       <div>
         <div class="flex items-center gap-2">
           <h1 id="header-subject-title" class="text-base sm:text-lg font-black bg-gradient-to-r from-cyan-300 via-sky-200 to-amber-200 bg-clip-text text-transparent">
-            康軒三上數學冒險島
+            三上數學冒險島
           </h1>
         </div>
         <div class="flex items-center gap-1.5 text-[11px] text-cyan-300/80 font-medium">
@@ -196,10 +196,10 @@
         <div class="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div class="space-y-1.5 text-center sm:text-left">
             <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-cyan-500/20 border border-cyan-400/40 rounded-full text-xs font-bold text-cyan-300">
-              <span>🏫</span> 康軒三上五大學科自主複習大廳
+              <span>🏫</span> 三上五大學科自主複習大廳
             </div>
             <h1 class="text-xl sm:text-2xl font-black text-white tracking-wide flex items-center justify-center sm:justify-start gap-2">
-              <span>🌟</span> 3年6班 學習探險總部
+              <span>🌟</span> 三年級學習探險總部
             </h1>
             <p class="text-xs text-slate-300 leading-relaxed max-w-xl">
               歡迎各位同學！點選下方學科進入挑戰，全學科闖關紀錄、卡牌與探究徽章皆永久自動保存於本機。
@@ -234,7 +234,7 @@
             </div>
             <div>
               <h3 class="text-lg font-black text-white group-hover:text-cyan-300 transition-colors">
-                康軒三上數學冒險島
+                三上數學冒險島
               </h3>
               <p class="text-xs text-slate-400 mt-1 leading-relaxed">
                 涵蓋 10000以內的數、四位數加減、毫米與長度、乘法、角與圖形、面積、除法、公升與毫升、分數。
@@ -381,7 +381,7 @@
             <span id="scope-banner-tag" class="text-xs font-normal text-amber-300 bg-amber-500/20 px-2 py-0.5 rounded-full border border-amber-500/40">期中考複習版（第1～4單元）</span>
           </h2>
           <p id="scope-banner-desc" class="text-slate-300 text-xs sm:text-sm mt-0.5">
-            涵蓋康軒三上期中考範圍：10000以內的數、四位數加減、毫米、乘法。進度自動綁定學生檔案！
+            涵蓋三上期中考範圍：10000以內的數、四位數加減、毫米、乘法。進度自動綁定學生檔案！
           </p>
         </div>
         <div class="flex items-center gap-1.5 bg-cyan-950/70 border border-cyan-500/30 px-3 py-1.5 rounded-xl text-xs text-cyan-200">
@@ -841,7 +841,7 @@
     const SUBJECT_DATA = {
       math: {
         id: "math",
-        name: "康軒三上數學冒險島",
+        name: "三上數學冒險島",
         icon: "📐",
         theme: "from-cyan-500 to-blue-600",
         badgeName: "水滴幻卡",
@@ -2909,8 +2909,8 @@ function genEnglish(unit, level) {
       document.getElementById("scope-status-badge").innerText = isMid ? "期中考範圍（第1～4單元）" : "期末考範圍（第5～9單元）";
       document.getElementById("scope-banner-tag").innerText = isMid ? "期中考複習版（第1～4單元）" : "期末考複習版（第5～9單元）";
       document.getElementById("scope-banner-desc").innerText = isMid 
-        ? "涵蓋康軒三上期中考範圍：10000以內的數、四位數加減、毫米、乘法。進度自動綁定學生檔案！"
-        : "涵蓋康軒三上期末考範圍：角與形狀、面積、除法、公升和毫升、分數。進度自動綁定學生檔案！";
+        ? "涵蓋三上期中考範圍：10000以內的數、四位數加減、毫米、乘法。進度自動綁定學生檔案！"
+        : "涵蓋三上期末考範圍：角與形狀、面積、除法、公升和毫升、分數。進度自動綁定學生檔案！";
       document.getElementById("scope-btn-label").innerText = isMid ? "切換期末考(5~9)" : "切換期中考(1~4)";
       renderUnits();
     }
