@@ -111,12 +111,12 @@
   <!-- Top App Navigation Bar -->
   <header id="math-header" class="hidden max-w-5xl mx-auto mb-3 bg-slate-900/85 backdrop-blur-md border border-cyan-500/30 rounded-2xl p-2.5 sm:p-3.5 flex flex-wrap items-center justify-between gap-2 shadow-2xl">
     <div class="flex items-center gap-2.5 cursor-pointer" id="btn-brand-home">
-      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-xl shadow-lg shadow-cyan-500/40">
+      <div id="header-subject-icon" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-xl shadow-lg shadow-cyan-500/40">
         🌊
       </div>
       <div>
         <div class="flex items-center gap-2">
-          <h1 class="text-base sm:text-lg font-black bg-gradient-to-r from-cyan-300 via-sky-200 to-amber-200 bg-clip-text text-transparent">
+          <h1 id="header-subject-title" class="text-base sm:text-lg font-black bg-gradient-to-r from-cyan-300 via-sky-200 to-amber-200 bg-clip-text text-transparent">
             康軒三上數學冒險島
           </h1>
         </div>
@@ -2858,7 +2858,27 @@ function genEnglish(unit, level) {
       }
       state.unitProgress = state.allProgress[subjectId];
 
-      // Update titles and visibility
+      // Update Header Titles and Icons dynamically
+      const headerTitle = document.getElementById("header-subject-title");
+      const headerIcon = document.getElementById("header-subject-icon");
+      const headerScopeBadge = document.getElementById("scope-status-badge");
+      const headerScopeBtn = document.getElementById("btn-toggle-scope");
+      const headerBinderBtn = document.getElementById("btn-open-binder");
+
+      if (headerTitle) headerTitle.innerText = subInfo.name;
+      if (headerIcon) headerIcon.innerText = subInfo.icon;
+
+      if (subjectId === 'math') {
+        if (headerScopeBadge) headerScopeBadge.classList.remove("hidden");
+        if (headerScopeBtn) headerScopeBtn.classList.remove("hidden");
+        if (headerBinderBtn) headerBinderBtn.classList.remove("hidden");
+      } else {
+        if (headerScopeBadge) headerScopeBadge.classList.add("hidden");
+        if (headerScopeBtn) headerScopeBtn.classList.add("hidden");
+        if (headerBinderBtn) headerBinderBtn.classList.add("hidden");
+      }
+
+      // Update titles and visibility in units banner
       const titleEl = document.getElementById("subject-active-title");
       const descEl = document.getElementById("scope-banner-desc");
       const scopeBtn = document.getElementById("btn-toggle-scope");
