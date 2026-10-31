@@ -188,11 +188,196 @@
     </div>
 
     <!-- VIEW 1: Unit Selection -->
-    <section id="view-units" class="space-y-3">
+        <!-- VIEW 0: 306 班級探險大廳 (Unified 5-Subject Lobby) -->
+    <section id="view-lobby" class="space-y-4">
+      <!-- Welcome Hero Banner -->
+      <div class="relative overflow-hidden bg-gradient-to-r from-cyan-950 via-slate-900 to-indigo-950 border border-cyan-500/40 rounded-3xl p-5 sm:p-6 shadow-2xl backdrop-blur-md">
+        <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="space-y-1.5 text-center sm:text-left">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-cyan-500/20 border border-cyan-400/40 rounded-full text-xs font-bold text-cyan-300">
+              <span>🏫</span> 康軒三上五大學科自主複習大廳
+            </div>
+            <h1 class="text-xl sm:text-2xl font-black text-white tracking-wide flex items-center justify-center sm:justify-start gap-2">
+              <span>🌟</span> 3年6班 學習探險總部
+            </h1>
+            <p class="text-xs text-slate-300 leading-relaxed max-w-xl">
+              歡迎各位同學！點選下方學科進入挑戰，全學科闖關紀錄、卡牌與探究徽章皆永久自動保存於本機。
+            </p>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <button id="btn-lobby-profile" class="px-3 py-2 bg-slate-800/90 hover:bg-slate-700 border border-amber-400/50 rounded-2xl text-xs font-bold text-amber-300 flex items-center gap-1.5 shadow-lg active:scale-95 transition-all">
+              <span>👤</span>
+              <span id="lobby-student-name">載入學生檔案...</span>
+              <span class="text-[10px] text-amber-400/70 underline">切換</span>
+            </button>
+            <button id="btn-lobby-backup" class="px-3 py-2 bg-slate-800/90 hover:bg-slate-700 border border-cyan-500/50 rounded-2xl text-xs font-bold text-cyan-300 flex items-center gap-1.5 shadow-lg active:scale-95 transition-all">
+              <span>💾</span>
+              <span>進度備份</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 Subject Portal Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+        <!-- 1. Math Portal Card -->
+        <div class="bg-slate-900/90 border border-cyan-500/40 hover:border-cyan-400 rounded-3xl p-5 shadow-xl flex flex-col justify-between transition-all hover:-translate-y-1 group">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="w-12 h-12 rounded-2xl bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-2xl shadow-md">
+                📐
+              </span>
+              <span class="px-2.5 py-1 bg-cyan-500/10 border border-cyan-400/30 text-cyan-300 text-[11px] font-bold rounded-full">
+                9 大單元 ｜ 180張水滴卡
+              </span>
+            </div>
+            <div>
+              <h3 class="text-lg font-black text-white group-hover:text-cyan-300 transition-colors">
+                康軒三上數學冒險島
+              </h3>
+              <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                涵蓋 10000以內的數、四位數加減、毫米與長度、乘法、角與圖形、面積、除法、公升與毫升、分數。
+              </p>
+            </div>
+            <div class="text-[11px] font-bold text-slate-400 flex items-center gap-1">
+              <span>進度：</span>
+              <span id="lobby-progress-math" class="text-cyan-300">0/9 單元完成</span>
+            </div>
+          </div>
+          <button id="btn-portal-math" class="mt-4 w-full py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:brightness-110 text-white font-black text-xs sm:text-sm rounded-xl shadow-lg transition-all active:scale-95 flex items-center justify-center gap-1.5">
+            進入數學冒險島 ➜
+          </button>
+        </div>
+
+        <!-- 2. Chinese Portal Card -->
+        <div class="bg-slate-900/90 border border-emerald-500/40 hover:border-emerald-400 rounded-3xl p-5 shadow-xl flex flex-col justify-between transition-all hover:-translate-y-1 group">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-2xl shadow-md">
+                📘
+              </span>
+              <span class="px-2.5 py-1 bg-emerald-500/10 border border-emerald-400/30 text-emerald-300 text-[11px] font-bold rounded-full">
+                4 大領域 ｜ 水萌靈收集
+              </span>
+            </div>
+            <div>
+              <h3 class="text-lg font-black text-white group-hover:text-emerald-300 transition-colors">
+                國語水萌靈自主闖關
+              </h3>
+              <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                涵蓋形音義與部首筆畫、詞語成語造句、修辭技巧大考驗、閱讀素養推論思考。
+              </p>
+            </div>
+            <div class="text-[11px] font-bold text-slate-400 flex items-center gap-1">
+              <span>進度：</span>
+              <span id="lobby-progress-chinese" class="text-emerald-300">0/4 單元完成</span>
+            </div>
+          </div>
+          <button id="btn-portal-chinese" class="mt-4 w-full py-2.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:brightness-110 text-white font-black text-xs sm:text-sm rounded-xl shadow-lg transition-all active:scale-95 flex items-center justify-center gap-1.5">
+            進入國語水萌靈 ➜
+          </button>
+        </div>
+
+        <!-- 3. Social Studies Portal Card -->
+        <div class="bg-slate-900/90 border border-amber-500/40 hover:border-amber-400 rounded-3xl p-5 shadow-xl flex flex-col justify-between transition-all hover:-translate-y-1 group">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-2xl shadow-md">
+                🏛️
+              </span>
+              <span class="px-2.5 py-1 bg-amber-500/10 border border-amber-400/30 text-amber-300 text-[11px] font-bold rounded-full">
+                4 大單元 ｜ 探究勳章
+              </span>
+            </div>
+            <div>
+              <h3 class="text-lg font-black text-white group-hover:text-amber-300 transition-colors">
+                社會探險隊（我的新學習 & 學校生活）
+              </h3>
+              <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                自我介紹九宮格、主動學習書包整理、校園安全隱藏危險、反霸凌1953、班級自治開班會流程。
+              </p>
+            </div>
+            <div class="text-[11px] font-bold text-slate-400 flex items-center gap-1">
+              <span>進度：</span>
+              <span id="lobby-progress-social" class="text-amber-300">0/4 單元完成</span>
+            </div>
+          </div>
+          <button id="btn-portal-social" class="mt-4 w-full py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 hover:brightness-110 text-white font-black text-xs sm:text-sm rounded-xl shadow-lg transition-all active:scale-95 flex items-center justify-center gap-1.5">
+            進入社會探險隊 ➜
+          </button>
+        </div>
+
+        <!-- 4. Science Portal Card -->
+        <div class="bg-slate-900/90 border border-lime-500/40 hover:border-lime-400 rounded-3xl p-5 shadow-xl flex flex-col justify-between transition-all hover:-translate-y-1 group">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="w-12 h-12 rounded-2xl bg-lime-500/20 border border-lime-400/40 flex items-center justify-center text-2xl shadow-md">
+                🔬
+              </span>
+              <span class="px-2.5 py-1 bg-lime-500/10 border border-lime-400/30 text-lime-300 text-[11px] font-bold rounded-full">
+                4 大單元 ｜ 自然精靈卡
+              </span>
+            </div>
+            <div>
+              <h3 class="text-lg font-black text-white group-hover:text-lime-300 transition-colors">
+                自然精靈探索隊
+              </h3>
+              <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                植物的身體（根莖葉花果實種子）、神奇的磁鐵（同斥異吸/指北針）、空氣與風、溶解與水。
+              </p>
+            </div>
+            <div class="text-[11px] font-bold text-slate-400 flex items-center gap-1">
+              <span>進度：</span>
+              <span id="lobby-progress-science" class="text-lime-300">0/4 單元完成</span>
+            </div>
+          </div>
+          <button id="btn-portal-science" class="mt-4 w-full py-2.5 bg-gradient-to-r from-lime-500 to-green-600 hover:brightness-110 text-white font-black text-xs sm:text-sm rounded-xl shadow-lg transition-all active:scale-95 flex items-center justify-center gap-1.5">
+            進入自然探索隊 ➜
+          </button>
+        </div>
+
+        <!-- 5. English Portal Card -->
+        <div class="bg-slate-900/90 border border-purple-500/40 hover:border-purple-400 rounded-3xl p-5 shadow-xl flex flex-col justify-between transition-all hover:-translate-y-1 group">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="w-12 h-12 rounded-2xl bg-purple-500/20 border border-purple-400/40 flex items-center justify-center text-2xl shadow-md">
+                🎃
+              </span>
+              <span class="px-2.5 py-1 bg-purple-500/10 border border-purple-400/30 text-purple-300 text-[11px] font-bold rounded-full">
+                4 大關卡 ｜ 南瓜糖果收集
+              </span>
+            </div>
+            <div>
+              <h3 class="text-lg font-black text-white group-hover:text-purple-300 transition-colors">
+                萬聖節學英文小遊戲
+              </h3>
+              <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                Halloween Characters & Costumes、Trick or Treat Fun、Phonics & Spelling、Daily Spooky Expressions。
+              </p>
+            </div>
+            <div class="text-[11px] font-bold text-slate-400 flex items-center gap-1">
+              <span>進度：</span>
+              <span id="lobby-progress-english" class="text-purple-300">0/4 單元完成</span>
+            </div>
+          </div>
+          <button id="btn-portal-english" class="mt-4 w-full py-2.5 bg-gradient-to-r from-purple-500 to-pink-600 hover:brightness-110 text-white font-black text-xs sm:text-sm rounded-xl shadow-lg transition-all active:scale-95 flex items-center justify-center gap-1.5">
+            進入萬聖英語樂園 ➜
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-units" class="space-y-3 hidden">
       <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-3.5 sm:p-5 backdrop-blur-sm shadow-xl flex flex-col sm:flex-row items-center justify-between gap-3">
         <div>
+          <div class="flex items-center gap-2 mb-1">
+            <button id="btn-back-to-lobby" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 border border-cyan-500/40 text-cyan-300 text-xs font-bold rounded-xl flex items-center gap-1 transition-all active:scale-95 shadow-md">
+              <span>🏠</span><span>返回探險大廳</span>
+            </button>
+          </div>
           <h2 class="text-lg sm:text-xl font-black text-white flex items-center gap-2">
-            <span>🎯 選擇數學挑戰單元</span>
+            <span id="subject-active-title">🎯 選擇數學挑戰單元</span>
             <span id="scope-banner-tag" class="text-xs font-normal text-amber-300 bg-amber-500/20 px-2 py-0.5 rounded-full border border-amber-500/40">期中考複習版（第1～4單元）</span>
           </h2>
           <p id="scope-banner-desc" class="text-slate-300 text-xs sm:text-sm mt-0.5">
@@ -639,7 +824,10 @@
 
     let currentScope = 'midterm'; // 'midterm' or 'final'
     function getUnits() {
-      return ALL_UNITS_DATA.filter(u => u.term === currentScope);
+      if (state.currentSubject === 'math') {
+        return ALL_UNITS_DATA.filter(u => u.term === currentScope);
+      }
+      return SUBJECT_DATA[state.currentSubject] ? SUBJECT_DATA[state.currentSubject].units : [];
     }
 
     // Current Student Profile
@@ -650,14 +838,90 @@
       id: "guest"
     };
 
+    const SUBJECT_DATA = {
+      math: {
+        id: "math",
+        name: "康軒三上數學冒險島",
+        icon: "📐",
+        theme: "from-cyan-500 to-blue-600",
+        badgeName: "水滴幻卡",
+        unitCount: 9,
+        units: ALL_UNITS_DATA
+      },
+      chinese: {
+        id: "chinese",
+        name: "國語水萌靈自主闖關",
+        icon: "📘",
+        theme: "from-emerald-500 to-teal-600",
+        badgeName: "水萌靈",
+        unitCount: 4,
+        units: [
+          { id: 1, name: "第一單元：形音義與部首筆畫", desc: "同音字、易錯字辨析、破音字與部首查字法", icon: "✍️", maxLevels: 5 },
+          { id: 2, name: "第二單元：詞語成語與造句接龍", desc: "疊字詞、生字成語意涵、照樣造句與關聯詞", icon: "💬", maxLevels: 5 },
+          { id: 3, name: "第三單元：修辭技巧大考驗", desc: "擬人、譬喻、排比、設問與感嘆修辭辨析", icon: "✨", maxLevels: 5 },
+          { id: 4, name: "第四單元：閱讀素養與推論思考", desc: "短文理解、訊息擷取、段落大意與主旨推論", icon: "📖", maxLevels: 5 }
+        ]
+      },
+      social: {
+        id: "social",
+        name: "社會探險隊（我的新學習 & 學校生活）",
+        icon: "🏛️",
+        theme: "from-amber-500 to-orange-600",
+        badgeName: "探究勳章",
+        unitCount: 4,
+        units: [
+          { id: 1, name: "第一單元：多元學習與自我介紹", desc: "三年級新生活、自我介紹九宮格、社團與戶外教育行前禮儀", icon: "🎒", maxLevels: 5 },
+          { id: 2, name: "第二單元：主動學習與時間管理", desc: "主動學習習慣、整理書包小祕訣、重要緊急優先與圖書館查資料", icon: "⏰", maxLevels: 5 },
+          { id: 3, name: "第三單元：校園安全與守護者", desc: "校園安全地圖、隱藏危險區域、反霸凌1953專線、生病防護與守護人員", icon: "🛡️", maxLevels: 5 },
+          { id: 4, name: "第四單元：班級自治與民主開班會", desc: "班級自治意義、開班會人時事、少數服從多數、班會六步驟與角色分工", icon: "🤝", maxLevels: 5 }
+        ]
+      },
+      science: {
+        id: "science",
+        name: "自然精靈探索隊",
+        icon: "🔬",
+        theme: "from-lime-500 to-green-600",
+        badgeName: "自然精靈",
+        unitCount: 4,
+        units: [
+          { id: 1, name: "第一單元：植物的身體", desc: "根（軸根/鬚根）、莖（木本/草本）、葉脈、花果實種子與繁衍", icon: "🌱", maxLevels: 5 },
+          { id: 2, name: "第二單元：神奇的磁鐵", desc: "磁極與磁力、同極相斥異極相吸、隔物吸鐵與指北針原理", icon: "🧲", maxLevels: 5 },
+          { id: 3, name: "第三單元：空氣與風", desc: "空氣佔空間可壓縮具重量、空氣流動成風、風向風速觀測", icon: "💨", maxLevels: 5 },
+          { id: 4, name: "第四單元：溶解與生活", desc: "溶解現象辨識、溶解限度飽和、加速溶解三秘訣與結晶蒸發", icon: "💧", maxLevels: 5 }
+        ]
+      },
+      english: {
+        id: "english",
+        name: "萬聖節英語樂園",
+        icon: "🎃",
+        theme: "from-purple-500 to-pink-600",
+        badgeName: "萬聖南瓜糖",
+        unitCount: 4,
+        units: [
+          { id: 1, name: "Unit 1: Halloween Characters & Costumes", desc: "Witch, ghost, pumpkin, mummy, skeleton & character riddles", icon: "🧙‍♀️", maxLevels: 5 },
+          { id: 2, name: "Unit 2: Trick or Treat Fun", desc: "Trick or treat dialogue, candy counting & polite Halloween English", icon: "🍬", maxLevels: 5 },
+          { id: 3, name: "Unit 3: Phonics & Spelling", desc: "Initial sounds, rhyming words, letter unscramble & short vowels", icon: "🔤", maxLevels: 5 },
+          { id: 4, name: "Unit 4: Daily Spooky Expressions", desc: "Greetings, costume Q&A, feelings & Halloween story comprehension", icon: "🎃", maxLevels: 5 }
+        ]
+      }
+    };
+
     // Game state
     let state = {
+      currentSubject: "lobby", // 'lobby', 'math', 'chinese', 'social', 'science', 'english'
       currentUnit: 1,
       currentLevel: 1,
       streak: 0,
       currentQuestionIndex: 0,
       currentQuestions: [],
       unitProgress: { 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1, 9: 1 },
+      allProgress: {
+        math: { 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1, 9: 1 },
+        chinese: { 1: 1, 2: 1, 3: 1, 4: 1 },
+        social: { 1: 1, 2: 1, 3: 1, 4: 1 },
+        science: { 1: 1, 2: 1, 3: 1, 4: 1 },
+        english: { 1: 1, 2: 1, 3: 1, 4: 1 }
+      },
       cardCollection: {},
       playTimeSeconds: 0, // seconds accumulated in current session
       restUntilTimestamp: 0, // epoch ms if currently locked in 30-min rest
@@ -675,7 +939,14 @@
       const key = getStudentStorageKey(profile.id);
       
       // Default state reset
-      state.unitProgress = { 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1, 9: 1 };
+      state.allProgress = {
+        math: { 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1, 9: 1 },
+        chinese: { 1: 1, 2: 1, 3: 1, 4: 1 },
+        social: { 1: 1, 2: 1, 3: 1, 4: 1 },
+        science: { 1: 1, 2: 1, 3: 1, 4: 1 },
+        english: { 1: 1, 2: 1, 3: 1, 4: 1 }
+      };
+      state.unitProgress = state.allProgress.math;
       state.cardCollection = {};
       state.playTimeSeconds = 0;
       state.restUntilTimestamp = 0;
@@ -684,7 +955,16 @@
         const raw = localStorage.getItem(key);
         if (raw) {
           const p = JSON.parse(raw);
-          if (p.unitProgress) state.unitProgress = Object.assign(state.unitProgress, p.unitProgress);
+          if (p.allProgress) {
+            state.allProgress = Object.assign(state.allProgress, p.allProgress);
+          } else if (p.unitProgress) {
+            state.allProgress.math = Object.assign(state.allProgress.math, p.unitProgress);
+          }
+          if (state.currentSubject && state.currentSubject !== 'lobby') {
+            state.unitProgress = state.allProgress[state.currentSubject] || state.allProgress.math;
+          } else {
+            state.unitProgress = state.allProgress.math;
+          }
           if (p.cardCollection) state.cardCollection = p.cardCollection;
           if (p.playTimeSeconds !== undefined) state.playTimeSeconds = p.playTimeSeconds;
           if (p.restUntilTimestamp !== undefined) state.restUntilTimestamp = p.restUntilTimestamp;
@@ -714,9 +994,13 @@
 
     function saveCurrentState() {
       const key = getStudentStorageKey(currentStudent.id);
+      if (state.currentSubject && state.currentSubject !== 'lobby') {
+        state.allProgress[state.currentSubject] = state.unitProgress;
+      }
       try {
         localStorage.setItem(key, JSON.stringify({
           unitProgress: state.unitProgress,
+          allProgress: state.allProgress,
           cardCollection: state.cardCollection,
           playTimeSeconds: state.playTimeSeconds,
           restUntilTimestamp: state.restUntilTimestamp,
@@ -725,6 +1009,7 @@
         }));
       } catch (e) {}
       updateHeaderStats();
+      renderLobby();
     }
 
     function updateStudentHeader() {
@@ -1059,17 +1344,27 @@
 
 function generateQuestion(unitId, level) {
   let q;
-  switch (unitId) {
-    case 1: q = genU1(level); break;
-    case 2: q = genU2(level); break;
-    case 3: q = genU3(level); break;
-    case 4: q = genU4(level); break;
-    case 5: q = genU5(level); break;
-    case 6: q = genU6(level); break;
-    case 7: q = genU7(level); break;
-    case 8: q = genU8(level); break;
-    case 9: q = genU9(level); break;
-    default: q = genU1(1); break;
+  if (state.currentSubject === 'chinese') {
+    q = genChinese(unitId, level);
+  } else if (state.currentSubject === 'social') {
+    q = genSocial(unitId, level);
+  } else if (state.currentSubject === 'science') {
+    q = genScience(unitId, level);
+  } else if (state.currentSubject === 'english') {
+    q = genEnglish(unitId, level);
+  } else {
+    switch (unitId) {
+      case 1: q = genU1(level); break;
+      case 2: q = genU2(level); break;
+      case 3: q = genU3(level); break;
+      case 4: q = genU4(level); break;
+      case 5: q = genU5(level); break;
+      case 6: q = genU6(level); break;
+      case 7: q = genU7(level); break;
+      case 8: q = genU8(level); break;
+      case 9: q = genU9(level); break;
+      default: q = genU1(1); break;
+    }
   }
   if (q && q.type === 'choice' && Array.isArray(q.options)) {
     const unq = unique(q.options);
@@ -1955,18 +2250,628 @@ function genU9(level) {
   }
 }
 
+    
+// =================== CHINESE (國語水萌靈) ===================
+function genChinese(unit, level) {
+  const name = sample(NAMES);
+  if (unit === 1) {
+    if (level === 1) {
+      const qData = sample([
+        { text: "下列哪一個字是「拔河」的正確用字？", options: ["拔", "友", "找", "披"], correct: "拔", hint: "右邊是「犮」，注意不是朋友的「友」。" },
+        { text: "下列詞語中的字形，哪一個完全正確？", options: ["辨別是非", "辯別是非", "辦別是非", "瓣別是非"], correct: "辨別是非", hint: "分別中間是「刀」，言字旁是「辯論」。" },
+        { text: "選出字形正確的詞語：", options: ["興高采烈", "興高彩烈", "星高采烈", "心高采烈"], correct: "興高采烈", hint: "神采奕奕的「采」。" },
+        { text: "下列哪一個字的部首是「木」部？", options: ["樹", "相", "想", "林"], correct: "樹", hint: "「樹」是木部，「想」是心部。" }
+      ]);
+      const opts = shuffle(unique([qData.correct, ...qData.options]));
+      return { tag: "字形辨析", type: "choice", text: qData.text, options: opts, answer: qData.correct, hint: qData.hint };
+    } else if (level === 2) {
+      const qData = sample([
+        { text: "「這本書寫【得】真好，你【得】趕快去圖書館借。」句中兩個【得】的讀音依序為何？", correct: "ㄉㄜˊ、ㄉㄟˇ", wrong: ["ㄉㄜ˙、ㄉㄟˇ", "ㄉㄟˇ、ㄉㄜˊ", "ㄉㄜˊ、ㄉㄜ˙"] },
+        { text: "「秋風吹過，樹葉飄【落】；小明總是丟三【落】四。」句中兩個【落】的讀音依序為何？", correct: "ㄌㄨㄛˋ、ㄌㄚˋ", wrong: ["ㄌㄨㄛˋ、ㄌㄨㄛˋ", "ㄌㄠˋ、ㄌㄨㄛˋ", "ㄌㄚˋ、ㄌㄨㄛˋ"] },
+        { text: "「他把事情的經過【重】新說了一遍，表情十分凝【重】。」句中兩個【重】的讀音依序為何？", correct: "ㄔㄨㄥˊ、ㄓㄨㄥˋ", wrong: ["ㄓㄨㄥˋ、ㄔㄨㄥˊ", "ㄔㄨㄥˊ、ㄔㄨㄥˊ", "ㄓㄨㄥˋ、ㄓㄨㄥˋ"] }
+      ]);
+      const opts = shuffle(unique([qData.correct, ...qData.wrong]));
+      return { tag: "多音字辨讀", type: "choice", text: qData.text, options: opts, answer: qData.correct, hint: "根據語意選擇正確的破音字讀音。" };
+    } else if (level === 3) {
+      const qData = sample([
+        { text: "國字「聞」的部首是什麼部？", correct: "耳部", wrong: ["門部", "日部", "一部"] },
+        { text: "國字「相」在字典中的部首是什麼部？", correct: "目部", wrong: ["木部", "人部", "日部"] },
+        { text: "國字「準」的部首是什麼部？", correct: "水部", wrong: ["十部", "隹部", "準部"] },
+        { text: "國字「悶」的部首是什麼部？", correct: "心部", wrong: ["門部", "日部", "口部"] }
+      ]);
+      const opts = shuffle(unique([qData.correct, ...qData.wrong]));
+      return { tag: "部首查字典", type: "choice", text: qData.text, options: opts, answer: qData.correct, hint: "注意字典查字法的部首歸類原則。" };
+    } else if (level === 4) {
+      const qData = sample([
+        { text: "國字「凸」共有幾筆畫？", correct: "5", hint: "凸的筆順為：豎、橫、豎、折、橫，共 5 畫。" },
+        { text: "國字「長」共有幾筆畫？", correct: "8", hint: "長為 8 畫。" },
+        { text: "國字「成」共有幾筆畫？", correct: "6", hint: "成字共 6 畫。" },
+        { text: "國字「凹」共有幾筆畫？", correct: "5", hint: "凹字共 5 畫。" }
+      ]);
+      return { tag: "筆畫筆順", type: "input", text: qData.text, answer: qData.correct, hint: qData.hint };
+    } else {
+      const qData = sample([
+        { text: "下列句子中，哪一個「張」字的意思是「量詞」？", correct: "桌上有一張白紙", wrong: ["張開雙手擁抱", "張三李四", "張燈結彩"] },
+        { text: "下列句子中，哪一個「發」字的意思是「產生」？", correct: "他發起高燒了", wrong: ["發射火箭", "發送傳單", "發明工具"] }
+      ]);
+      const opts = shuffle(unique([qData.correct, ...qData.wrong]));
+      return { tag: "字義辨析", type: "choice", text: qData.text, options: opts, answer: qData.correct, hint: "仔細體會詞語在不同語境中的真實意涵。" };
+    }
+  } else if (unit === 2) {
+    if (level === 1) {
+      const qData = sample([
+        { text: "草地上有一大片（ ）的青草，看起來生意盎然。括弧中填入哪個疊字詞最恰當？", correct: "綠油油", wrong: ["紅通通", "急急忙忙", "冷冰冰"] },
+        { text: "妹妹聽到要去看動物園，開心地（ ）跳了起來。括弧中填入何者最順暢？", correct: "蹦蹦跳跳", wrong: ["慢吞吞", "氣沖沖", "靜悄悄"] },
+        { text: "下課鐘聲一響，操場上頓時變得（ ）。", correct: "熱鬧滾滾", wrong: ["冷冷清清", "慌慌張張", "黑漆漆"] }
+      ]);
+      const opts = shuffle(unique([qData.correct, ...qData.wrong]));
+      return { tag: "疊字詞運用", type: "choice", text: qData.text, options: opts, answer: qData.correct, hint: "選擇能生動描摹情境的疊字形容詞。" };
+    } else if (level === 2) {
+      const qData = sample([
+        { text: "形容大家各說各的、意見紛亂的成語是下列哪一個？", correct: "七嘴八舌", wrong: ["一意孤行", "三心二意", "四面八方"] },
+        { text: "「做一件事情同時得到兩種好處」，可以用哪一個成語來形容？", correct: "一舉兩得", wrong: ["半途而廢", "得不償失", "守株待兔"] },
+        { text: "形容因為急於求成而採取錯誤的方法，反而把事情弄糟了，是哪一個成語？", correct: "揠苗助長", wrong: ["水到渠成", "畫龍點睛", "亡羊補牢"] }
+      ]);
+      const opts = shuffle(unique([qData.correct, ...qData.wrong]));
+      return { tag: "成語意涵", type: "choice", text: qData.text, options: opts, answer: qData.correct, hint: "熟記課文常用成語的寓意與由來。" };
+    } else if (level === 3) {
+      const qData = sample([
+        { text: "照樣造句：「（微風）（輕輕）的（吹過）（大地）」，下列何者配對最合適？", correct: "雨水細細的灑在花園", wrong: ["太陽大大的熱熱的", "跑得非常快的小狗", "紅色的美麗的大花朵"] },
+        { text: "照樣造句：「（小鳥）在（樹上）（快樂）的（歌唱）」，下列何者句型結構相符？", correct: "游魚在水裡自由的游動", wrong: ["大樹生長在森林中", "小狗非常可愛活潑", "唱歌跳舞真開心"] }
+      ]);
+      const opts = shuffle(unique([qData.correct, ...qData.wrong]));
+      return { tag: "照樣造句", type: "choice", text: qData.text, options: opts, answer: qData.correct, hint: "注意「名詞＋在＋名詞＋形容詞＋的＋動詞」的對稱結構。" };
+    } else if (level === 4) {
+      const qData = sample([
+        { text: "「（ ）今天下著大雨，大家（ ）準時到達學校參加升旗。」括弧中填入哪一組關聯詞最恰當？", correct: "雖然……但是……", wrong: ["因為……所以……", "只要……就……", "不僅……而且……"] },
+        { text: "「（ ）每天堅持練習投籃，你的球技（ ）會大幅進步。」括弧中應填入：", correct: "只要……就……", wrong: ["雖然……但是……", "即使……也……", "既然……就……"] }
+      ]);
+      const opts = shuffle(unique([qData.correct, ...qData.wrong]));
+      return { tag: "關聯詞填空", type: "choice", text: qData.text, options: opts, answer: qData.correct, hint: "體會前後文句的轉折、條件或因果關係。" };
+    } else {
+      const qData = sample([
+        { text: "請選出沒有語病的句子：", correct: "經過老師的耐心講解，我終於弄懂了這道題目的解法。", wrong: ["今天的天氣十分非常炎熱。", "他忍不住情不自禁地笑出了聲音。", "小明把作業全部幾乎都做完了。"] },
+        { text: "請選出文句通順、用詞正確的句子：", correct: "圖書館裡安靜得連一根針掉在地上的聲音都能聽見。", wrong: ["他急急忙忙地慢慢走進教室。", "這朵花散發出難聽的氣味。", "我們一起共同分享這份快樂。"] }
+      ]);
+      const opts = shuffle(unique([qData.correct, ...qData.wrong]));
+      return { tag: "語病判斷", type: "choice", text: qData.text, options: opts, answer: qData.correct, hint: "避免詞語重複堆疊或前後矛盾。" };
+    }
+  } else if (unit === 3) {
+    if (level === 1) {
+      const opts = shuffle(["擬人修辭", "譬喻修辭", "排比修辭", "感嘆修辭"]);
+      return { tag: "修辭辨析", type: "choice", text: "「金黃色的稻穗在微風中輕輕向大家鞠躬問好。」這句話運用了哪一種修辭手法？", options: opts, answer: "擬人修辭", hint: "把稻穗當成人來描寫（鞠躬問好）。" };
+    } else if (level === 2) {
+      const opts = shuffle(["譬喻修辭", "擬人修辭", "設問修辭", "類疊修辭"]);
+      return { tag: "修辭辨析", type: "choice", text: "「天上的白雲像是一群悠閒散步的綿羊。」這句話運用了哪一種修辭手法？", options: opts, answer: "譬喻修辭", hint: "使用「像是」將白雲比喻成綿羊。" };
+    } else if (level === 3) {
+      const opts = shuffle(["排比修辭", "譬喻修辭", "對偶修辭", "反問修辭"]);
+      return { tag: "修辭辨析", type: "choice", text: "「春天來了，小草發芽了；春天來了，花兒綻放了；春天來了，大地換上了新衣。」這句話運用了什麼修辭？", options: opts, answer: "排比修辭", hint: "三個結構相同、語氣一致的短句排列在一起。" };
+    } else if (level === 4) {
+      const opts = shuffle(["設問修辭", "感嘆修辭", "擬人修辭", "譬喻修辭"]);
+      return { tag: "修辭辨析", type: "choice", text: "「這是誰遺失的書包呢？原來是阿德忘記帶回家了。」這句話運用了哪一種修辭手法？", options: opts, answer: "設問修辭", hint: "自問自答的形式屬於設問修辭。" };
+    } else {
+      const opts = shuffle(["感嘆修辭", "設問修辭", "引用修辭", "映襯修辭"]);
+      return { tag: "修辭辨析", type: "choice", text: "「哇！這座山峰真是雄偉壯麗啊！」這句話主要表達強烈的情感，屬於哪一種修辭？", options: opts, answer: "感嘆修辭", hint: "帶有強烈驚嘆情感與嘆詞「哇」、「啊」。" };
+    }
+  } else {
+    const qData = sample([
+      { tag: "閱讀理解", text: "【短文閱讀】「小松鼠奇奇每天都會收集許多橡實藏在樹洞與泥土裡。到了冬天，有些藏在泥土裡的橡實被大雪覆蓋，奇奇忘記挖出來吃。第二年春天，那些橡實發芽長成了嫩綠的小樹苗。」請問：這段故事告訴我們小松鼠在自然界扮演什麼樣的角色？", correct: "無意中幫助森林播種繁衍新樹", wrong: ["浪費食物的動物", "破壞樹木的壞蛋", "只懂得睡覺的懶惰蟲"], hint: "忘記挖出的種子發芽長成樹苗，幫助了植物繁衍。" },
+      { tag: "段落大意", text: "【短文閱讀】「臺灣早期眷村是為了照顧軍人與其眷屬所建立的聚落。來自各省的居民住在一起，彼此分享家鄉美食，包水餃、做香腸、烤燒餅，形成了獨特多元的眷村文化。」這段話的核心主旨是什麼？", correct: "介紹眷村的由來與多元融合的文化特色", wrong: ["介紹水餃與香腸的做法", "說明軍人工作的辛苦", "描寫現代大樓的建築風格"], hint: "文章從由來到美食融合，都在闡述眷村獨特文化。" }
+    ]);
+    const opts = shuffle(unique([qData.correct, ...qData.wrong]));
+    return { tag: qData.tag, type: "choice", text: qData.text, options: opts, answer: qData.correct, hint: qData.hint };
+  }
+}
+
+
+
+// =================== SOCIAL STUDIES (社會探險隊) ===================
+function genSocial(unit, level) {
+  if (unit === 1) {
+    if (level === 1) {
+      const q = sample([
+        { text: "升上三年級後，學校生活和一、二年級相比有什麼不同？", correct: "課表課變多了，一週有更多天待到下午", wrong: ["每天都只要上半天課", "不再需要學習新知識", "不能參加任何學校活動"] },
+        { text: "面對班上的新同學，可以用什麼方法快速認識彼此？", correct: "主動打招呼並透過自我介紹分享姓名與興趣", wrong: ["不跟任何人說話", "嘲笑同學的名字", "只跟以前認識的朋友玩"] }
+      ]);
+      return { tag: "三年級新生活", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "升上三年級在校時間變長，自我介紹是快速認識的好方法。" };
+    } else if (level === 2) {
+      const q = sample([
+        { text: "根據課本探究九宮格，上臺進行自我介紹時，下列哪項做法最恰當？", correct: "站姿端正、保持微笑、音量適當並清楚說出內容", wrong: ["說話聲音非常小聲讓人聽不見", "低著頭看地板、背對臺下同學", "介紹完直接跑下臺不打招呼"] },
+        { text: "自我介紹結束時，應該遵守哪一個良好禮節？", correct: "說「謝謝大家的聆聽」並下臺鞠躬，注意下臺動線", wrong: ["大聲喊叫直接衝回座位", "批評前一位同學說得不好", "不需要說任何道謝的話"] }
+      ]);
+      return { tag: "自我介紹禮儀", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "良好儀態與適當音量能展現自信與尊重。" };
+    } else if (level === 3) {
+      const q = sample([
+        { text: "在學校的多彩活動中，下列哪一項通常是全校同學一起參加的？", correct: "學生朝會與國家防災日演練", wrong: ["課後桌球社團", "管樂團特別排練", "美術比賽代表隊集訓"] },
+        { text: "每個同學的專長和興趣不同，面對想參加不同社團的同學，我們應該抱持什麼態度？", correct: "彼此欣賞、互相鼓勵", wrong: ["嘲笑別人喜歡的活動", "強迫同學必須跟自己選一樣的社團", "排擠不同興趣的同學"] }
+      ]);
+      return { tag: "學校活動與社團", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "朝會是全校性活動，社團則尊重多元興趣與專長。" };
+    } else if (level === 4) {
+      const q = sample([
+        { text: "課本中走訪臺北市「四四南村」，主要是為了學習與認識什麼？", correct: "認識早期的眷村社區文化與歷史發展", wrong: ["觀察熱帶雨林生態", "練習打棒球的運動技能", "參觀現代摩天大樓建築"] },
+        { text: "參加戶外教育走出教室前，下列哪一項是必須做好的準備工作？", correct: "攜帶健保卡、防蚊液、水壺、雨具並了解集合時間地點", wrong: ["只帶零食與電動玩具", "不需遵守分組可以自己脫隊亂跑", "穿拖鞋去爬山也不用帶水"] }
+      ]);
+      return { tag: "戶外教育探索", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "戶外教育結合實際體驗，行前準備與安全第一。" };
+    } else {
+      const q = sample([
+        { text: "課本中的探究小絕招包含哪三個步驟？", correct: "已知 ➜ 想知 ➜ 學到", wrong: ["猜測 ➜ 放棄 ➜ 忘記", "說話 ➜ 吵架 ➜ 認輸", "提問 ➜ 發呆 ➜ 睡覺"] },
+        { text: "進行戶外導覽解說時，下列哪一種行為值得讚許？", correct: "專注聆聽、保持禮貌並勤做重點筆記", wrong: ["在導覽員說話時大聲聊天喧嘩", "隨意觸摸破損展品設施", "未經同意獨自脫隊離開"] }
+      ]);
+      return { tag: "探究小絕招", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "以已知為起點，好奇提問想知，最後整理學到的知識！" };
+    }
+  } else if (unit === 2) {
+    if (level === 1) {
+      const q = sample([
+        { text: "想要擁有良好的學習效果，下列哪一項是主動學習的好習慣？", correct: "上課專心聆聽、主動發問，回家按時複習與預習", wrong: ["上課發呆看窗外、下課才問老師", "功課等到睡覺前一刻才急忙趕寫", "遇到不懂的問題從來不請教別人"] },
+        { text: "學習能為我們帶來什麼重要的幫助？", correct: "增長知識、增廣見聞，培養解決問題與生活能力", wrong: ["只有應付考試考高分，沒有其他用處", "只是為了讓爸媽開心", "讓我們沒有時間做任何休閒活動"] }
+      ]);
+      return { tag: "主動學習習慣", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "培養良好的主動學習態度能讓學習事半功倍。" };
+    } else if (level === 2) {
+      const q = sample([
+        { text: "每天睡覺前「整理書包的小祕訣」，不包含下列哪一項？", correct: "把所有的課本都塞進書包不用看課表", wrong: ["檢查聯絡簿確認各項功課是否完成", "根據隔天課表準備需要的課本與文具", "善用資料袋與書包夾層分類整齊"] },
+        { text: "如果睡覺前才發現作業還沒寫，最好的改善建議是什麼？", correct: "放學回家後先完成作業，再去玩遊戲或休閒", wrong: ["隔天去學校抄同學的作業", "跟老師撒謊說聯絡簿弄丟了", "直接不寫去睡覺"] }
+      ]);
+      return { tag: "整理書包小祕訣", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "睡前對照課表整理書包，放學先完成作業才安心。" };
+    } else if (level === 3) {
+      const q = sample([
+        { text: "放學後有許多事情想做，我們通常應該如何安排處理順序？", correct: "重要且緊急的事項安排時間優先處理", wrong: ["隨便挑好玩的事先做，重要的事最後再說", "一直看電視直到睡覺前", "只做別人叫我做的事"] },
+        { text: "放學回家有三個小時，待辦事項有「寫作業30分鐘」與「看故事書30分鐘」，列出待辦事項有何好處？", correct: "預估花費時間，知道還有多少剩餘時間可自主運用", wrong: ["讓自己壓力很大不能休息", "只是為了應付爸媽檢查", "沒有任何幫助"] }
+      ]);
+      return { tag: "時間安排優先順序", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "重要與緊急事項優先處理，做好時間規劃身心更健康。" };
+    } else if (level === 4) {
+      const q = sample([
+        { text: "週末全家人計畫去爬山，下列哪一種時間規劃方式最能兼顧責任與放鬆？", correct: "週五或出發前先把學校作業完成，出遊回來就能充分休息", wrong: ["把作業留到週日深夜睡覺前才趕著寫", "完全不寫作業去爬山，等週一被處罰", "跟家人說因為要寫作業所以永遠不去戶外運動"] },
+        { text: "利用電腦或平板上網搜尋課堂疑問時，課本小提醒建議使用多久必須休息？", correct: "師長同意後才可上網，上網30分鐘要休息10分鐘", wrong: ["一次連續玩5小時不休息", "邊吃飯邊看螢幕", "躲在棉被裡摸黑上網"] }
+      ]);
+      return { tag: "護眼與時間管理", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "上網30分鐘休息10分鐘，保護視力健康。" };
+    } else {
+      const q = sample([
+        { text: "在圖書館尋找特定主題書籍時，利用哪種方式能最快速找到資料？", correct: "使用電腦「館藏查詢系統」輸入關鍵字搜尋書籍位置", wrong: ["一排一排書架慢慢漫無目的地翻找", "在圖書館大聲跑步呼喊朋友", "直接放棄離開圖書館"] },
+        { text: "訪問校內師長或同學前，下列哪一項準備流程是正確的？", correct: "確認對象時間地點 ➜ 訪談注意禮貌做記錄 ➜ 結束後表達道謝", wrong: ["直接衝去打斷老師說話 ➜ 隨意插話 ➜ 轉頭就跑", "完全不帶紙筆 ➜ 聊天完就忘記", "請別人代替自己去訪問"] }
+      ]);
+      return { tag: "善用學習資源", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "善用查詢系統，訪問他人保持禮貌與記錄。" };
+    }
+  } else if (unit === 3) {
+    if (level === 1) {
+      const q = sample([
+        { text: "在校園生活中，下列哪一個區域屬於容易隱藏危險、經過時需特別留意的場所？", correct: "經常有車輛出入的停車場與運作中的電動門附近", wrong: ["安靜閱讀的圖書館內部", "健康中心的沙發區", "整齊排好課桌椅的教室"] },
+        { text: "走廊與樓梯間地面剛拖過或下雨潮濕時，我們應該怎麼做？", correct: "放慢腳步小心行走，避免奔跑滑倒受傷", wrong: ["加速衝刺滑壘玩耍", "推擠前面的同學", "坐在樓梯扶手向下滑"] }
+      ]);
+      return { tag: "校園危險辨識", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "停車場、電動門、潮濕地面與自然教室需提高警覺。" };
+    } else if (level === 2) {
+      const q = sample([
+        { text: "下課在操場遊戲時，發現翹翹板或遊樂器材破損搖晃，正確做法是什麼？", correct: "立刻告訴師長，請職工維修，並提醒同學暫勿靠近", wrong: ["假裝沒看到繼續在上面大力搖晃", "叫更多同學一起跳上去看會不會斷", "自己拿膠帶隨便黏起來"] },
+        { text: "如果看見校園角落有大樹樹枝折斷搖搖欲墜，或有疑似蛇類出沒，該怎麼辦？", correct: "保持安全距離，不靠近不圍觀，立刻通報學校師長處理", wrong: ["拿木棍去挑釁或追打野生動物", "號召同學圍在樹下拍照", "自己爬上樹去鋸樹枝"] }
+      ]);
+      return { tag: "安全通報責任", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "發現危險設施或生物，立刻通報大人維護安全。" };
+    } else if (level === 3) {
+      const q = sample([
+        { text: "當身體出現發燒、咳嗽、流鼻水等傳染病症狀時，正確的健康觀念是什麼？", correct: "由長輩陪同就醫，依規定戴口罩請假在家休息，康復再返校", wrong: ["隱瞞生病堅持去上學傳染給同學", "在教室故意對著同學咳嗽", "不吃藥也不休息到處亂跑"] },
+        { text: "為了防止校園病菌傳播，學校放學後會開啟什麼設備進行環境消毒？", correct: "紫外線消毒燈與稀釋漂白水擦拭課桌椅", wrong: ["強力冷氣吹風機", "捕蚊燈", "彩色霓虹燈"] }
+      ]);
+      return { tag: "生病請假利人利己", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "生病戴口罩請假休息利人利己，紫外線與漂白水守護環境。" };
+    } else if (level === 4) {
+      const q = sample([
+        { text: "同學因為身材、外貌被同班同學長期嘲笑、取綽號或排擠，這種行為屬於什麼？", correct: "校園霸凌行為（言語與關係霸凌）", wrong: ["無傷大雅的普通玩笑", "表示友好的特別方式", "好朋友之間的正常互動"] },
+        { text: "面對校園霸凌時，教育部設置的反霸凌求助諮詢專線號碼是多少？", correct: "1953", wrong: ["119", "110", "1999"] },
+        { text: "如果看見身邊同學正在遭受同學霸凌，我們應該怎麼做？", correct: "勇敢伸出援手、報告老師與家長，不做冷漠的旁觀者", wrong: ["跟著大家一起嘲笑該位同學", "在旁邊看熱鬧甚至拍手叫好", "當作沒看到悄悄溜走"] }
+      ]);
+      return { tag: "反霸凌專線1953", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "霸凌零容忍！反霸凌專線是 1953，勇敢求助與發聲。" };
+    } else {
+      const q = sample([
+        { text: "校園中有許多默默守護我們的人，下列配對何者最為正確？", correct: "護理師照顧傷病、警衛巡視校門安全、導護老師維持路口交通", wrong: ["警衛負責替同學打預防針", "護理師負責修理遊樂器材", "廚房阿姨負責在路口指揮交通"] },
+        { text: "遇到為我們服務的導護志工、警衛叔叔或清潔職工時，我們可以如何表達感謝？", correct: "主動微笑問好、說聲謝謝辛苦了，也可以親手製作感謝卡", wrong: ["當作沒看到直接低頭走過", "嫌棄他們的打掃工作", "覺得他們服務是理所當然不用感謝"] }
+      ]);
+      return { tag: "守護我們的人", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "人人為我，我為人人，主動向校園守護者表達感謝！" };
+    }
+  } else {
+    if (level === 1) {
+      const q = sample([
+        { text: "什麼是「班級自治」？", correct: "由學生自己共同管理班級事務、訂定公約與選舉幹部", wrong: ["全部事情都由老師一個人決定，學生不用參與", "大家都不遵守任何規則自由隨便做", "班長一個人說了算，其他人不能發表意見"] },
+        { text: "下列哪一件事情適合提出來在班會中全班共同討論？", correct: "解決教室地面垃圾問題、訂定班級公約或討論同樂會事項", wrong: ["某位同學昨晚看了什麼電視節目", "放學後個人要吃什麼點心", "誰寫作業的速度比較快"] }
+      ]);
+      return { tag: "班級自治意義", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "班級自治是大家參與討論全班共同事務的民主練習。" };
+    } else if (level === 2) {
+      const q = sample([
+        { text: "開班會討論班級事務時，可以從哪三大面向來思考？", correct: "何人（全班）、何時（定期/需要時）、何事（共同解決事務）", wrong: ["何處吃飯、何時睡覺、何物好買", "何人吵架、何時下課、何人挨罵", "何日放假、何地旅遊、何時玩遊戲"] },
+        { text: "在討論班級事務進行表決後，學習民主精神的最重要態度是什麼？", correct: "少數要服從多數的決定，多數也要尊重少數的意見", wrong: ["少數人如果不滿意就大哭大鬧拒絕配合", "多數人可以嘲笑並處罰少數不同意的人", "只要意見不合就立刻打架決定勝負"] }
+      ]);
+      return { tag: "開班會三要素與民主", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "何人、何時、何事；少數服從多數，多數尊重少數。" };
+    } else if (level === 3) {
+      const q = sample([
+        { text: "課本中介紹的開班會標準流程，第一步是由誰進行報告？", correct: "主席報告（宣布開會目的與討論事項）", wrong: ["司儀宣布散會", "記錄員發表心得感想", "全班立刻舉手表決"] },
+        { text: "會議中如果有人臨時想到開會前沒列入的事項，應該在哪一個階段提出？", correct: "臨時動議階段", wrong: ["主席剛走上臺時直接插嘴", "大家正在排隊散會時", "趁幹部報告時大聲打斷"] }
+      ]);
+      return { tag: "班會流程與臨時動議", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "主席報告開場，提案討論表決，臨時事項在臨時動議提出。" };
+    } else if (level === 4) {
+      const q = sample([
+        { text: "班會六大流程的正確順序為何？", correct: "主席報告 ➜ 上次決議執行 ➜ 幹部報告 ➜ 提案討論表決 ➜ 臨時動議 ➜ 散會", wrong: ["散會 ➜ 提案表決 ➜ 主席報告 ➜ 幹部報告", "提案表決 ➜ 散會 ➜ 幹部報告 ➜ 主席報告", "幹部報告 ➜ 散會 ➜ 臨時動議 ➜ 主席報告"] },
+        { text: "若班會要討論跳蚤市場義賣物品，在大家發表意見後，應該透過什麼方式做最終決定？", correct: "由大家進行民主投票表決", wrong: ["由力氣最大的人決定", "抽籤看誰運氣好", "看誰聲音最大就聽誰的"] }
+      ]);
+      return { tag: "班會完整流程", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "六大流程按部就班，充分討論後再舉手表決。" };
+    } else {
+      const q = sample([
+        { text: "開班會時，各個角色的職責配對，下列何者正確？", correct: "主席主持會議與引導發言；司儀宣布會議程序；記錄寫下決議結果", wrong: ["記錄負責上臺決定誰可以發言", "司儀負責講評與最後打分數", "主席負責在旁邊寫筆記不說話"] },
+        { text: "班會中指導老師的主要角色是什麼？", correct: "提醒會議流程、處理臨時狀況並在會後進行指導講評", wrong: ["代替主席把所有話說完", "替所有同學舉手表決", "不參與也不在場"] }
+      ]);
+      return { tag: "班會角色分工", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "主席主持、司儀宣讀程序、記錄書寫決議、老師在旁指導！" };
+    }
+  }
+}
+
+
+
+// =================== SCIENCE (自然精靈探索隊) ===================
+function genScience(unit, level) {
+  if (unit === 1) {
+    if (level === 1) {
+      const q = sample([
+        { text: "植物的「根」通常生長在泥土中，主要功能不包括下列哪一項？", correct: "進行光合作用製造大量養分", wrong: ["吸收水分與溶解在水中的養分", "牢牢抓緊土壤固定植物身體", "儲藏養分（如番薯、胡蘿蔔）"] },
+        { text: "下列哪一種植物的根屬於粗粗長長、有明顯主根的「軸根」？", correct: "菠菜與咸豐草", wrong: ["蔥與蒜", "水稻與小麥", "玉米"] }
+      ]);
+      return { tag: "根的構造與功能", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "軸根有明顯主根；鬚根由基部生出粗細相近的根。" };
+    } else if (level === 2) {
+      const q = sample([
+        { text: "植物的「莖」像身體的骨架，它的主要功用是什麼？", correct: "支撐植物體，並負責輸送水分與養分", wrong: ["吸收泥土深處的水分", "開花結果吸引昆蟲", "埋在土裡抓牢地面"] },
+        { text: "樹幹堅硬粗壯、可以長得很高的木本莖植物是下列哪一種？", correct: "樟樹與榕樹", wrong: ["咸豐草與酢漿草", "番薯藤", "萬年青"] }
+      ]);
+      return { tag: "莖的支撐與輸送", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "木本莖堅硬高大，草本莖柔軟矮小。" };
+    } else if (level === 3) {
+      const q = sample([
+        { text: "觀察百合花或玉米的葉子，上面的葉脈呈現一條條相互平行的線條，稱為什麼葉脈？", correct: "平行脈", wrong: ["網狀脈", "圓形脈", "螺旋脈"] },
+        { text: "榕樹與菩提樹的葉脈像蜘蛛網一樣交織分布，這屬於哪種葉脈？", correct: "網狀脈", wrong: ["平行脈", "直線脈", "無葉脈"] }
+      ]);
+      return { tag: "葉脈與葉片", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "單子葉植物多為平行脈，雙子葉植物多為網狀脈。" };
+    } else if (level === 4) {
+      const q = sample([
+        { text: "一朵完整的花通常包含四個主要部分，不包括下列哪一項？", correct: "葉綠體", wrong: ["花萼", "花瓣", "雄蕊與雌蕊"] },
+        { text: "植物的花經過授粉受精後，通常會發育成長為什麼構造以孕育種子？", correct: "果實", wrong: ["新的根", "厚厚的樹皮", "大片的葉子"] }
+      ]);
+      return { tag: "花與果實", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "花授粉後雌蕊子房發育為果實，胚珠發育為種子。" };
+    } else {
+      const q = sample([
+        { text: "下列植物部位與生活中常見食材的配對，何者正確？", correct: "甘蔗是吃它的莖、胡蘿蔔是吃它的根", wrong: ["高麗菜是吃它的花", "綠豆是吃它的果肉", "花生是吃它的葉子"] },
+        { text: "植物種子傳播的方式很多，蒲公英有毛絮隨風飄散是依靠什麼傳播？", correct: "風力傳播", wrong: ["水力傳播", "動物吃下排泄傳播", "自身果莢彈力噴射"] }
+      ]);
+      return { tag: "植物生活應用", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "了解根莖葉花果種在生活飲食與自然的奇妙利用。" };
+    }
+  } else if (unit === 2) {
+    if (level === 1) {
+      const q = sample([
+        { text: "長條形磁鐵的磁力，在磁鐵的哪一個部位最強？", correct: "兩端的磁極（N極與S極）", wrong: ["正中間的位置", "整根磁鐵每一處都完全一樣", "只有N極強，S極很弱"] },
+        { text: "磁鐵可以吸引下列哪一種材質的物品？", correct: "鐵製的迴紋針或鐵釘", wrong: ["塑膠尺", "純鋁箔紙", "玻璃彈珠"] }
+      ]);
+      return { tag: "磁極與磁力", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "磁鐵兩端磁極磁力最強，能吸引鐵、鈷、鎳等製品。" };
+    } else if (level === 2) {
+      const q = sample([
+        { text: "將兩支長條形磁鐵的「N極與N極」互相靠近時，會發生什麼現象？", correct: "互相排斥推開（同極相斥）", wrong: ["緊緊吸在一起（同極相吸）", "完全沒有任何反應", "磁鐵會瞬間失去磁力"] },
+        { text: "當磁鐵的「N極與S極」靠近時，會產生什麼力量？", correct: "互相吸引靠近（異極相吸）", wrong: ["互相排斥分開", "彼此旋轉不碰觸", "互相推擠"] }
+      ]);
+      return { tag: "同極相斥異極相吸", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "口訣：同極相斥，異極相吸！" };
+    } else if (level === 3) {
+      const q = sample([
+        { text: "磁鐵隔著薄紙板或墊板時，還能不能吸引另一側的鐵製迴紋針？", correct: "可以，磁力可以穿透紙板等非鐵質物體", wrong: ["完全不行，紙板會完全阻斷磁力", "只有在水中才可以", "會把紙板燒一個洞"] },
+        { text: "將鐵夾放入裝水的玻璃杯底，磁鐵在杯外移動，鐵夾會跟著動嗎？", correct: "會，磁力能穿透玻璃與水作用", wrong: ["不會，水會吸收所有磁力", "鐵夾會浮在水面上", "玻璃會碎裂"] }
+      ]);
+      return { tag: "隔物吸鐵實驗", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "磁力能隔著紙張、木片、塑膠、水與玻璃等非磁性物體作用。" };
+    } else if (level === 4) {
+      const q = sample([
+        { text: "將指北針平放在桌面上靜止時，指針塗成紅色（標記N）的一端會指向哪一個方位？", correct: "地球的北方", wrong: ["地球的南方", "太陽升起的東方", "風吹過來的西方"] },
+        { text: "使用指北針測量方位時，指北針旁邊應該避免放置什麼物品以防干擾？", correct: "鐵製品、磁鐵或開啟的手機電子設備", wrong: ["木頭鉛筆", "純棉布手帕", "玻璃水杯"] }
+      ]);
+      return { tag: "指北針與地磁", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "地球本身是一顆大磁石，指北針N極靜止時恆指北方。" };
+    } else {
+      const q = sample([
+        { text: "下列生活用品中，哪一項沒有利用磁鐵的原理？", correct: "木製的四腳餐桌", wrong: ["冰箱門的密封橡膠條", "筆記本或鉛筆盒的磁吸扣", "磁浮列車的懸浮導引系統"] },
+        { text: "如何把一根原本沒有磁性的鐵釘暫時變成磁鐵（磁化）？", correct: "用磁鐵的同一極沿著同一個方向在鐵釘上多次摩擦", wrong: ["把鐵釘泡進熱水裡", "用鐵鎚大力敲打鐵釘", "把鐵釘放在太陽下曝曬"] }
+      ]);
+      return { tag: "磁鐵生活應用", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "磁鐵廣泛應用於冰箱門、磁扣盒與磁化實驗。" };
+    }
+  } else if (unit === 3) {
+    if (level === 1) {
+      const q = sample([
+        { text: "將空塑膠袋在空中揮舞後將袋口紮緊，袋子鼓鼓的，這證明了空氣具有什麼特性？", correct: "空氣真實存在且會佔有空間", wrong: ["空氣有鮮豔的顏色", "空氣有甜甜的味道", "空氣非常堅硬不能變形"] },
+        { text: "將杯底黏著乾紙團的玻璃杯垂直壓入水中，紙團為什麼沒有濕？", correct: "杯子內的空氣佔據了空間，水無法進入", wrong: ["紙團具有超強防水膜", "水害怕玻璃杯不敢進去", "杯子裡什麼都沒有"] }
+      ]);
+      return { tag: "空氣佔有空間", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "空氣無色無味看不見，但真實佔據空間。" };
+    } else if (level === 2) {
+      const q = sample([
+        { text: "用手堵住針筒前端出氣口，用力推動活塞，活塞可以前進一段距離，放手後活塞彈回。這說明空氣：", correct: "空氣可以被壓縮，且壓縮後有彈性", wrong: ["水也可以像空氣一樣被大幅壓縮", "空氣會直接消失不見", "針筒破了一個洞"] },
+        { text: "同樣大小的兩顆籃球，一顆打飽氣，另一顆完全沒打氣，放在天平兩端，哪一邊較重？", correct: "打飽氣的籃球較重，證明空氣具有重量", wrong: ["沒打氣的比較重", "兩者重量完全一樣", "天平會飄浮起來"] }
+      ]);
+      return { tag: "空氣可被壓縮與重量", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "氣體分子間隙大可被壓縮，空氣亦有質量與重量。" };
+    } else if (level === 3) {
+      const q = sample([
+        { text: "「風」是怎麼產生的？", correct: "空氣在不同地點之間流動所形成的現象", wrong: ["樹木自己搖晃產生巨大的風", "太陽從天空吹出氣體", "天神在天上呼吸的結果"] },
+        { text: "點燃的線香冒出白煙，將線香放在空氣流動處，白煙的飄動方向可以告訴我們什麼？", correct: "風流動的方向（風向）", wrong: ["當天的氣溫高低", "明天的降雨機率", "線香的重量大小"] }
+      ]);
+      return { tag: "風的成因", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "空氣流動形成風，煙霧或旗幟飄動可觀察風向。" };
+    } else if (level === 4) {
+      const q = sample([
+        { text: "當操場上的旗幟朝著「南方」飄動時，代表風是從哪一個方向吹過來的？", correct: "從北方吹來（北風）", wrong: ["從南方吹來（南風）", "從東方吹來（東風）", "從西方吹來（西風）"] },
+        { text: "風向計箭頭指著「東方」，表示當前吹的是什麼風？", correct: "東風（風從東邊吹來）", wrong: ["西風", "南風", "北風"] }
+      ]);
+      return { tag: "風向觀測", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "風向是指風「吹來的方向」。旗向南飄表示從北來，吹北風。" };
+    } else {
+      const q = sample([
+        { text: "下列哪一種人類設施或工具，是利用「風力」來發揮功用的？", correct: "風力發電機與風帆帆船", wrong: ["太陽能熱水器", "地熱發電廠", "柴油火車"] },
+        { text: "在戶外吹泡泡時，泡泡朝著東北方飄去，此時吹的是什麼方向的風？", correct: "西南風", wrong: ["東北風", "西北風", "東南風"] }
+      ]);
+      return { tag: "風的生活利用", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "風力可推動帆船、帶動發電機，是重要的綠色能源。" };
+    }
+  } else {
+    if (level === 1) {
+      const q = sample([
+        { text: "在科學實驗中，什麼叫做「溶解」？", correct: "物質放入水中均勻分散，靜置後不會沉澱，水變清澈", wrong: ["物質沈在杯底變成大石塊", "水面上浮著一層厚厚的不溶粉末", "把水倒掉只留下粉末"] },
+        { text: "下列哪一種物質加入水中充分攪拌後，可以完全「溶解」？", correct: "食鹽或白砂糖", wrong: ["海邊的細沙", "炒菜用的胡椒粉", "壓碎的粉筆灰"] }
+      ]);
+      return { tag: "溶解現象辨識", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "溶解會均勻分散於水中，不會沈澱分層。" };
+    } else if (level === 2) {
+      const q = sample([
+        { text: "取同等份量加入水中攪拌，下列哪一組物質「不能」溶解在水中？", correct: "鐵粉、沙子、麵粉", wrong: ["黑糖、冰糖、食鹽", "檸檬酸、果汁粉、細砂糖", "奶粉（完全水溶型）"] },
+        { text: "在 100 毫升的水中，不斷加入食鹽攪拌，鹽會一直無限制溶解下去嗎？", correct: "不會，水量固定時，溶解量有一定限度（達到飽和）", wrong: ["會，只要一直攪拌就能加無限多包鹽", "水會變成冰塊", "水會全部蒸發消失"] }
+      ]);
+      return { tag: "溶解限度", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "固定水量與水溫下，物質溶解的總量是有上限的。" };
+    } else if (level === 3) {
+      const q = sample([
+        { text: "想要讓一顆大冰糖更快在水中溶解完畢，下列哪一個方法最有效？", correct: "先將冰糖壓碎成細粉，並加入溫熱水充分攪拌", wrong: ["整顆直接丟進冰水裡不動它", "放在冰箱冷凍庫裡", "把杯子蓋起來放在黑暗處"] },
+        { text: "下列哪一組操作方法，全部都能「加快」砂糖在水中的溶解速度？", correct: "壓碎顆粒、用筷子攪拌、提高水溫", wrong: ["加入冰塊、停止攪拌、保持大顆粒", "把水倒掉一半", "靜置在陰涼處"] }
+      ]);
+      return { tag: "加速溶解三秘訣", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "加速溶解三大秘訣：磨細顆粒、加熱水溫、快速攪拌。" };
+    } else if (level === 4) {
+      const q = sample([
+        { text: "一杯已經充分溶解食鹽的透明食鹽水，如何將裡面的鹽分重新分離取出來？", correct: "將鹽水加熱蒸發水分，水乾後杯底就會析出白色鹽結晶", wrong: ["用細濾網直接把鹽水倒過去過濾", "放進冰箱冷凍變成冰塊就能挑出來", "拿磁鐵把鹽吸出來"] },
+        { text: "臺灣西南部沿海傳統的「曬鹽場」，是利用什麼大自然的力量分離出海鹽？", correct: "利用陽光曝曬與海風吹拂蒸發海水中的水分", wrong: ["利用大火在鍋子裡煮", "用冷氣機冷凍海水", "用吸塵器把鹽吸乾淨"] }
+      ]);
+      return { tag: "蒸發與結晶分離", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "溶解的物質無法靠濾紙過濾，但能靠水分蒸發析出結晶。" };
+    } else {
+      const q = sample([
+        { text: "在日常生活中，下列哪一項是常見的溶解應用？", correct: "泡熱可可、煮湯加鹽調味、泡發泡錠維他命", wrong: ["用水泥砌磚塊牆壁", "用木棒做風箏骨架", "用剪刀剪彩色色紙"] },
+        { text: "媽媽煮冬瓜茶時，熱熱的茶湯中加入砂糖很快溶化，放涼後喝起來很甜。這應用了什麼自然原理？", correct: "水溫較高時溶解速度快，且水能溶解糖", wrong: ["糖在熱水中會燃燒", "水溫高糖會消失變成空氣", "糖在高溫會變成鹽"] }
+      ]);
+      return { tag: "溶解生活素養", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "溶解現象廣泛應用於沖調飲品與料理調味中。" };
+    }
+  }
+}
+
+
+
+// =================== ENGLISH (萬聖節學英文) ===================
+function genEnglish(unit, level) {
+  if (unit === 1) {
+    if (level === 1) {
+      const q = sample([
+        { text: "What is this classic Halloween character that flies on a broom? (騎著掃帚飛行的萬聖節角色是什麼？)", correct: "Witch", wrong: ["Ghost", "Pumpkin", "Candy"] },
+        { text: "What do we call a floating white spooky character that says 'Boo!'? (飄浮說Boo的白色幽靈是什麼？)", correct: "Ghost", wrong: ["Witch", "Bat", "Cat"] },
+        { text: "What is an orange Halloween vegetable that we carve with funny faces? (萬聖節刻著鬼臉的橘色南瓜是什麼？)", correct: "Pumpkin", wrong: ["Apple", "Banana", "Tomato"] },
+        { text: "What creature with wings hangs upside down in caves? (倒掛在洞穴中有翅膀的生物是什麼？)", correct: "Bat", wrong: ["Dog", "Fish", "Spider"] }
+      ]);
+      return { tag: "Halloween Characters", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "Witch=女巫, Ghost=幽靈, Pumpkin=南瓜, Bat=蝙蝠。" };
+    } else if (level === 2) {
+      const q = sample([
+        { text: "A carved pumpkin with a glowing candle inside is called a ______.", correct: "Jack-o'-lantern", wrong: ["Spider web", "Black cat", "Magic broom"] },
+        { text: "Which creature has eight legs and spins a sticky web? (有八隻腳會織網的生物是什麼？)", correct: "Spider", wrong: ["Bat", "Monster", "Mummy"] },
+        { text: "A spooky monster wrapped completely in white bandages is a ______.", correct: "Mummy", wrong: ["Vampire", "Skeleton", "Zombie"] },
+        { text: "A creature made entirely of bones is a ______.", correct: "Skeleton", wrong: ["Witch", "Bat", "Pumpkin"] }
+      ]);
+      return { tag: "Spooky Vocabulary", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "Jack-o'-lantern=南瓜燈, Spider=蜘蛛, Mummy=木乃伊, Skeleton=骷髏。" };
+    } else if (level === 3) {
+      const q = sample([
+        { text: "Which word means '令人害怕的、毛骨悚然的'?", correct: "Spooky", wrong: ["Happy", "Sweet", "Sunny"] },
+        { text: "Which word is the opposite of 'scary' (可怕的)?", correct: "Cute", wrong: ["Creepy", "Dark", "Spooky"] },
+        { text: "What do children wear on Halloween night to disguise themselves? (萬聖節變裝穿的衣服叫什麼？)", correct: "Costume", wrong: ["Pajamas", "Swimsuit", "Raincoat"] }
+      ]);
+      return { tag: "Halloween Adjectives", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "Spooky=陰森可怕的, Costume=變裝服飾。" };
+    } else if (level === 4) {
+      const q = sample([
+        { text: "Riddle: 'I wear a black pointed hat, fly on a broom, and make magic potions. Who am I?'", correct: "A witch", wrong: ["A ghost", "A pumpkin", "A spider"] },
+        { text: "Riddle: 'I am made of bones. I can walk and rattle, but I have no skin or eyes. Who am I?'", correct: "A skeleton", wrong: ["A vampire", "A cat", "A candy"] },
+        { text: "Riddle: 'I sleep upside down during the day and fly at night. Who am I?'", correct: "A bat", wrong: ["An owl", "A spider", "A ghost"] }
+      ]);
+      return { tag: "Character Riddles", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "Read the clues carefully to identify the Halloween figure!" };
+    } else {
+      const q = sample([
+        { text: "'I am dressed as a brave superhero!' What is the person wearing?", correct: "A superhero costume", wrong: ["A witch dress", "A ghost sheet", "A school uniform"] },
+        { text: "'She is wearing a crown and a sparkling gown.' She is dressed as a ______.", correct: "Princess", wrong: ["Monster", "Mummy", "Pirate"] }
+      ]);
+      return { tag: "Costume Roleplay", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "Match the description with the costume role." };
+    }
+  } else if (unit === 2) {
+    if (level === 1) {
+      const q = sample([
+        { text: "What famous phrase do kids shout when knocking on doors on Halloween? (不給糖就搗蛋的英文是什麼？)", correct: "Trick or treat!", wrong: ["Merry Christmas!", "Happy Birthday!", "Good morning!"] },
+        { text: "What sweet treats do children collect in their baskets? (孩子們籃子裡收集的甜食是什麼？)", correct: "Candies and chocolates", wrong: ["Vegetables and salad", "Books and pencils", "Erasers and rulers"] }
+      ]);
+      return { tag: "Trick or Treat", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "Trick or treat! = 不給糖就搗蛋！" };
+    } else if (level === 2) {
+      const count1 = randomInt(2, 6);
+      const count2 = randomInt(2, 5);
+      const total = count1 + count2;
+      return {
+        tag: "Sweet Math",
+        type: "input",
+        text: `Anna has ${count1} lollipops (棒棒糖) and gets ${count2} chocolates (巧克力). How many sweet treats does she have in total? (請以阿拉伯數字回答總數)`,
+        answer: String(total),
+        hint: `${count1} + ${count2} = ${total} treats.`
+      };
+    } else if (level === 3) {
+      const q = sample([
+        { text: "When someone gives you delicious candies on Halloween, what should you politely say? (拿到糖果時該說什麼禮貌用語？)", correct: "Thank you! Happy Halloween!", wrong: ["I want more!", "Give it to me now!", "No way!"] },
+        { text: "What container do kids often carry to hold their candies? (裝糖果的提袋或提籃叫什麼？)", correct: "Candy basket", wrong: ["School backpack", "Shoe box", "Pencil case"] }
+      ]);
+      return { tag: "Polite English", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "Always say 'Thank you!' with a smile." };
+    } else if (level === 4) {
+      const q = sample([
+        { text: "Complete the sentence: 'Knock, knock! ______ or treat! Give me something sweet!'", correct: "Trick", wrong: ["Track", "Truck", "Trip"] },
+        { text: "Which sweet treat is on a stick? (插在棍子上的糖果叫什麼？)", correct: "Lollipop", wrong: ["Chocolate bar", "Cookie", "Donut"] }
+      ]);
+      return { tag: "Treat Words", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "Trick or treat; lollipop=棒棒糖。" };
+    } else {
+      const q = sample([
+        { text: "Which of the following is NOT a candy or sweet snack? (下列哪一項不是甜食點心？)", correct: "Onion", wrong: ["Chocolate", "Lollipop", "Gummy bear"] },
+        { text: "What color is a typical Halloween pumpkin? (萬聖節南瓜的經典顏色是什麼？)", correct: "Orange", wrong: ["Blue", "Purple", "Pink"] }
+      ]);
+      return { tag: "Halloween Colors & Food", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "Orange is the signature Halloween color." };
+    }
+  } else if (unit === 3) {
+    if (level === 1) {
+      const q = sample([
+        { text: "Which letter does the word 'Pumpkin' start with? (Pumpkin 的開頭字母是什麼？)", correct: "P", wrong: ["B", "D", "T"] },
+        { text: "Which letter does the word 'Witch' start with? (Witch 的開頭字母是什麼？)", correct: "W", wrong: ["M", "V", "N"] },
+        { text: "Which letter does the word 'Ghost' start with? (Ghost 的開頭字母是什麼？)", correct: "G", wrong: ["J", "C", "K"] },
+        { text: "Which letter does the word 'Bat' start with? (Bat 的開頭字母是什麼？)", correct: "B", wrong: ["P", "D", "V"] }
+      ]);
+      return { tag: "Initial Phonics", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "Listen to the first sound: /p/, /w/, /g/, /b/." };
+    } else if (level === 2) {
+      const q = sample([
+        { text: "Which word rhymes with 'Cat' and is a flying Halloween animal? (和 Cat 押韻且會飛的萬聖動物是？)", correct: "Bat", wrong: ["Dog", "Pig", "Hen"] },
+        { text: "Which word rhymes with 'Night' and means '恐懼、驚嚇'?", correct: "Fright", wrong: ["Flight", "Bright", "Light"] }
+      ]);
+      return { tag: "Rhyming Words", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "Cat -> Bat / Fright -> Night." };
+    } else if (level === 3) {
+      const q = sample([
+        { text: "Unscramble the letters to spell a sweet treat: [ C - N - A - D - Y ]", correct: "Candy", hint: "C-A-N-D-Y = 糖果。" },
+        { text: "Unscramble the letters to spell a spooky creature: [ G - H - S - O - T ]", correct: "Ghost", hint: "G-H-S-O-T = 幽靈。" },
+        { text: "Unscramble the letters to spell a Halloween fruit: [ P - M - P - K - I - N - U ]", correct: "Pumpkin", hint: "P-U-M-P-K-I-N = 南瓜。" }
+      ]);
+      return { tag: "Spelling Challenge", type: "input", text: q.text, answer: q.correct, hint: q.hint };
+    } else if (level === 4) {
+      const q = sample([
+        { text: "What is the short vowel sound in the word 'Web' (蜘蛛網)?", correct: "Short e /e/", wrong: ["Short a /æ/", "Short i /ɪ/", "Short u /ʌ/"] },
+        { text: "What is the short vowel sound in the word 'Bat' (蝙蝠)?", correct: "Short a /æ/", wrong: ["Short o /ɒ/", "Short e /e/", "Short u /ʌ/"] }
+      ]);
+      return { tag: "Short Vowels", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "Web has short e; Bat has short a." };
+    } else {
+      const q = sample([
+        { text: "Select the correct spelling for '蜘蛛網':", correct: "Spider web", wrong: ["Spidar wab", "Spyder wub", "Spidre web"] },
+        { text: "Select the correct spelling for '怪物':", correct: "Monster", wrong: ["Monstar", "Munster", "Manstar"] }
+      ]);
+      return { tag: "Word Accuracy", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "Check letters carefully: M-O-N-S-T-E-R." };
+    }
+  } else {
+    if (level === 1) {
+      const q = sample([
+        { text: "How do you wish your friends on October 31st? (10月31日萬聖節如何祝福朋友？)", correct: "Happy Halloween!", wrong: ["Happy New Year!", "Merry Christmas!", "Good night!"] },
+        { text: "When a ghost jumps out and you want to say you feel afraid, you say: 'I am ______!'", correct: "scared", wrong: ["hungry", "tired", "thirsty"] }
+      ]);
+      return { tag: "Halloween Greetings", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "Happy Halloween! / I am scared!" };
+    } else if (level === 2) {
+      const q = sample([
+        { text: "A: 'What are you dressed as?' \nB: '______'", correct: "I am dressed as a wizard.", wrong: ["I am eating an apple.", "It is 8 o'clock.", "The sky is blue."] },
+        { text: "A: 'Do you want some candies?' \nB: '______'", correct: "Yes, please! Thank you!", wrong: ["No, I am asleep.", "My name is Tom.", "I live in Taiwan."] }
+      ]);
+      return { tag: "Daily Q&A", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "Answer costume question with what you are dressed as." };
+    } else if (level === 3) {
+      const q = sample([
+        { text: "Put the words in order: [ you / Are / scared / ? ]", correct: "Are you scared?", wrong: ["You are scared?", "Scared are you?", "You scared are?"] },
+        { text: "Put the words in order: [ treat / Trick / or / ! ]", correct: "Trick or treat!", wrong: ["Or trick treat!", "Treat trick or!", "Trick treat or!"] }
+      ]);
+      return { tag: "Sentence Order", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "Are you scared? / Trick or treat!" };
+    } else if (level === 4) {
+      const q = sample([
+        { text: "What action do you take when you reach a neighbor's house on Halloween? (到達鄰居家門口時做什麼？)", correct: "Knock on the door", wrong: ["Open the window", "Climb the tree", "Run away quickly"] },
+        { text: "What do you do with a pumpkin before placing a candle inside? (放入蠟燭前對南瓜做什麼？)", correct: "Carve a face on it", wrong: ["Paint it blue", "Eat it raw", "Throw it into water"] }
+      ]);
+      return { tag: "Action Verbs", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "Knock on the door / Carve a face." };
+    } else {
+      const q = sample([
+        { text: "【Mini Story】'Leo wears a vampire cape and carries a pumpkin basket. He knocks on Mrs. Brown's door and shouts: \'Trick or treat!\' Mrs. Brown smiles and gives him two yummy chocolates.' \nQuestion: What costume is Leo wearing?", correct: "A vampire cape", wrong: ["A superhero mask", "A witch dress", "A mummy bandage"] },
+        { text: "【Mini Story】In the story above, what did Mrs. Brown give to Leo?", correct: "Two chocolates", wrong: ["An apple", "A pencil", "A balloon"] }
+      ]);
+      return { tag: "Story Comprehension", type: "choice", text: q.text, options: shuffle(unique([q.correct, ...q.wrong])), answer: q.correct, hint: "Read the story to find what costume Leo is wearing and what he received." };
+    }
+  }
+}
+
+
     /* UI Controller */
+    const viewLobby = document.getElementById("view-lobby");
     const viewUnits = document.getElementById("view-units");
     const viewLevels = document.getElementById("view-levels");
     const viewChallenge = document.getElementById("view-challenge");
 
     function showView(viewId) {
-      viewUnits.classList.add("hidden");
-      viewLevels.classList.add("hidden");
-      viewChallenge.classList.add("hidden");
-      if (viewId === 'units') viewUnits.classList.remove("hidden");
-      if (viewId === 'levels') viewLevels.classList.remove("hidden");
-      if (viewId === 'challenge') viewChallenge.classList.remove("hidden");
+      if (viewLobby) viewLobby.classList.add("hidden");
+      if (viewUnits) viewUnits.classList.add("hidden");
+      if (viewLevels) viewLevels.classList.add("hidden");
+      if (viewChallenge) viewChallenge.classList.add("hidden");
+
+      if (viewId === 'lobby') {
+        if (viewLobby) viewLobby.classList.remove("hidden");
+        state.currentSubject = "lobby";
+        renderLobby();
+      }
+      if (viewId === 'units' && viewUnits) {
+        viewUnits.classList.remove("hidden");
+        renderUnits();
+      }
+      if (viewId === 'levels' && viewLevels) {
+        viewLevels.classList.remove("hidden");
+        renderLevels();
+      }
+      if (viewId === 'challenge' && viewChallenge) {
+        viewChallenge.classList.remove("hidden");
+      }
+    }
+
+    function renderLobby() {
+      // Update student profile name in lobby
+      const lobbyName = document.getElementById("lobby-student-name");
+      if (lobbyName) {
+        if (!currentStudent || currentStudent.id === 'guest' || !currentStudent.name) {
+          lobbyName.innerText = "訪客探險家";
+        } else {
+          lobbyName.innerText = `${currentStudent.className} ${currentStudent.seatNo}號 ${currentStudent.name}`;
+        }
+      }
+
+      // Calculate progress counters
+      const subjects = ['math', 'chinese', 'social', 'science', 'english'];
+      subjects.forEach(sub => {
+        const el = document.getElementById(`lobby-progress-${sub}`);
+        if (!el) return;
+        const prog = state.allProgress[sub] || {};
+        const totalU = SUBJECT_DATA[sub] ? SUBJECT_DATA[sub].unitCount : 4;
+        let clearedCount = 0;
+        for (let u = 1; u <= totalU; u++) {
+          const maxLvl = (sub === 'math') ? 10 : 5;
+          if ((prog[u] || 1) > maxLvl) clearedCount++;
+        }
+        el.innerText = `${clearedCount}/${totalU} 單元全破`;
+      });
+    }
+
+    function openSubject(subjectId) {
+      playSound('click');
+      state.currentSubject = subjectId;
+      const subInfo = SUBJECT_DATA[subjectId];
+      if (!subInfo) return;
+
+      // Ensure progress map exists
+      if (!state.allProgress[subjectId]) {
+        state.allProgress[subjectId] = {};
+      }
+      state.unitProgress = state.allProgress[subjectId];
+
+      // Update titles and visibility
+      const titleEl = document.getElementById("subject-active-title");
+      const descEl = document.getElementById("scope-banner-desc");
+      const scopeBtn = document.getElementById("btn-toggle-scope");
+      const scopeTag = document.getElementById("scope-banner-tag");
+
+      if (titleEl) titleEl.innerText = `${subInfo.icon} ${subInfo.name}`;
+      if (descEl) descEl.innerText = `每關連續答對 5 題即可通關並獲取專屬【${subInfo.badgeName}】！`;
+
+      if (subjectId === 'math') {
+        if (scopeBtn) scopeBtn.classList.remove("hidden");
+        if (scopeTag) scopeTag.classList.remove("hidden");
+        updateScopeUI();
+      } else {
+        if (scopeBtn) scopeBtn.classList.add("hidden");
+        if (scopeTag) scopeTag.classList.add("hidden");
+      }
+
+      showView('units');
     }
 
     function updateHeaderStats() {
@@ -2202,10 +3107,14 @@ function genU9(level) {
       } catch(e) {}
 
       const passedLvl = state.currentLevel;
-      const isLvl10 = passedLvl === 10;
+      const maxLvl = (state.currentSubject === 'math') ? 10 : 5;
+      const isMaxLvl = passedLvl >= maxLvl;
 
-      if (state.unitProgress[state.currentUnit] <= passedLvl) {
+      if (!state.unitProgress[state.currentUnit] || state.unitProgress[state.currentUnit] <= passedLvl) {
         state.unitProgress[state.currentUnit] = passedLvl + 1;
+        if (state.currentSubject && state.currentSubject !== 'lobby') {
+          state.allProgress[state.currentSubject] = state.unitProgress;
+        }
         saveCurrentState();
       }
 
@@ -2454,25 +3363,55 @@ function genU9(level) {
       
       if (initialProfile && initialProfile.name && initialProfile.id !== 'guest') {
         loadStudentProfile(initialProfile);
+        showView('lobby');
       } else {
-        // First time or no saved record: start with guest and immediately pop up login modal
+        // First time or no saved record: start with guest, show lobby, and immediately pop up login modal
         loadStudentProfile({ className: "", seatNo: "", name: "", id: "guest" });
+        showView('lobby');
         setTimeout(() => {
           openStudentLoginModal();
         }, 350);
       }
       initEyeProtectionTimer();
 
-      // Brand Home
+      // Brand Home -> Back to Lobby
       document.getElementById("btn-brand-home").addEventListener("click", () => {
-        playSound('click'); showView('units'); renderUnits();
+        playSound('click'); showView('lobby');
       });
       document.getElementById("btn-nav-home").addEventListener("click", () => {
-        playSound('click'); showView('units'); renderUnits();
+        playSound('click'); showView('lobby');
       });
+      const btnBackToLobby = document.getElementById("btn-back-to-lobby");
+      if (btnBackToLobby) {
+        btnBackToLobby.addEventListener("click", () => {
+          playSound('click'); showView('lobby');
+        });
+      }
       document.getElementById("btn-back-to-units").addEventListener("click", () => {
         playSound('click'); showView('units'); renderUnits();
       });
+
+      // 5 Subject Portal Card Click Listeners
+      const btnPMath = document.getElementById("btn-portal-math");
+      if (btnPMath) btnPMath.addEventListener("click", () => openSubject('math'));
+
+      const btnPChinese = document.getElementById("btn-portal-chinese");
+      if (btnPChinese) btnPChinese.addEventListener("click", () => openSubject('chinese'));
+
+      const btnPSocial = document.getElementById("btn-portal-social");
+      if (btnPSocial) btnPSocial.addEventListener("click", () => openSubject('social'));
+
+      const btnPScience = document.getElementById("btn-portal-science");
+      if (btnPScience) btnPScience.addEventListener("click", () => openSubject('science'));
+
+      const btnPEnglish = document.getElementById("btn-portal-english");
+      if (btnPEnglish) btnPEnglish.addEventListener("click", () => openSubject('english'));
+
+      const btnLobbyProfile = document.getElementById("btn-lobby-profile");
+      if (btnLobbyProfile) btnLobbyProfile.addEventListener("click", () => openStudentLoginModal());
+
+      const btnLobbyBackup = document.getElementById("btn-lobby-backup");
+      if (btnLobbyBackup) btnLobbyBackup.addEventListener("click", () => quickOpenBackupModal());
       document.getElementById("btn-exit-challenge").addEventListener("click", () => {
         playSound('click'); showView('levels'); renderLevels();
       });
